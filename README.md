@@ -50,13 +50,29 @@ The provided ROS Catkin make build system can be utilized, but I used `catkin to
 This repo should be checked out to a catkin workspace on the raspberry pi so the directory structure appears as below. If not already available, a catkin workspace can be created or transitioned from a catkin make workspace using catkin tools ([or if using stock ROS tools, see tutorial pages for creating a catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)). If you don't have the pi connected to the internet you could use the catkin commands to create the workspace on another conputer, then copy the files to a RPi over wifi via scp. For example: `scp spotMicro/* ubuntu@10.42.0.1:~/catkin_ws/src/`.
 
 ```
-catkin_ws/
+wheelleg_ws/
 │
+├── backup
+│   └── log
+├── build
+├── devel
 ├── src/
-│   ├── spot_micro_motion_cmd
+│   ├── wheelleg
 │   │   └── ...
-│   ├── spot_micro_keyboard_cmd
-│   │   └── ...  
+│   ├── wheelleg_gazebo
+│   │   └── ...
+│   ├── wheelleg_description
+│   │   └── ...
+│   ├── wheelleg_controller
+│   │   └── StandModeController.py
+│   │   └── WheelModeController.py
+│   │   └── GaitModeController.py   
+│   │   └── StateCommand.py
+│   │   └── WheellegController.py
+│   │
+│   ├── wheelleg_UI
+│   │   └── Controller_UI
+│   │
 │   └── ...
 ```
 
