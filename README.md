@@ -79,7 +79,6 @@ bridge_core/
 │   │   │   └── robot_controller.launch.py        # Launch file for control modes
 │   │   └── package.xml
 │   │
-│   │
 │   ├── robot_can_activation/
 │   │   ├── src/
 │   │   │   ├── bridge_can_node.py       # Node for bridge motor activation via CAN
@@ -89,11 +88,17 @@ bridge_core/
 │   │   └── CMakeLists.txt
 │   │   └── package.xml
 │   │
+│   └── robot_interfaces/
+│   │   └── msg/
+│   │   │    └── Bridgemsg * 8         # Bridge custom msg
+│   │   └── CMakeLists.txt
+│   │   └── package.xml
+│   │
 │   └── bridge_ui/
-│       └── src/
-│           └── ui_controller.py         # PyQt UI for controlling the robot
-│       └── CMakeLists.txt
-│       └── package.xml
+│   │   └── src/
+│   │   │    └── ui_controller.py         # PyQt UI for controlling the robot
+│   │   └── CMakeLists.txt
+│   │   └── package.xml
 ```
 
 Note that this repo utilizes two git submodules, which require additional steps to check out. After checking out the main repo, checkout the submodules via:
