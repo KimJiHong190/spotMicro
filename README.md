@@ -50,35 +50,50 @@ The provided ROS Catkin make build system can be utilized, but I used `catkin to
 This repo should be checked out to a catkin workspace on the raspberry pi so the directory structure appears as below. If not already available, a catkin workspace can be created or transitioned from a catkin make workspace using catkin tools ([or if using stock ROS tools, see tutorial pages for creating a catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)). If you don't have the pi connected to the internet you could use the catkin commands to create the workspace on another conputer, then copy the files to a RPi over wifi via scp. For example: `scp spotMicro/* ubuntu@10.42.0.1:~/catkin_ws/src/`.
 
 ```
-wheelleg_ws/
-│
-├── backup
-│   └── log
-├── build
-├── devel
+bridge_core/
 ├── src/
-│   ├── wheelleg
-│   │   └── ...
-│   ├── InverseKinematics
-│   │   └── robot_IK.py
-│   │   └── Transformations.py
+│   ├── robots_description/
+│   │   ├── urdf/
+│   │   │   └── wheelleg.urdf  # Robot description files
+│   │   ├── launch/
+│   │   │   ├── wheelleg_visualize.launch.py        # Launch file to visualize robot in RViz2
+│   │   ├── meshes/
+│   │   │   └── *STL
+│   │   ├── robot_description/
+│   │   │   └── wheelleg_monitoring.py              # Monitoring Node
+│   │   ├── rviz/
+│   │   │   └── monitoring.rviz
+│   │   │
+│   │   └── package.xml
 │   │
-│   ├── wheelleg_gazebo
-│   │   └── ...
-│   ├── wheelleg_description
-│   │   └── ...
-│   ├── wheelleg_controller
-│   │   └── StandModeController.py
-│   │   └── WheelModeController.py
-│   │   └── GaitModeController.py   
-│   │   └── StateCommand.py
-│   │   └── PIDController.py
-│   │   └── WheellegController.py
+│   ├── robot_control/
+│   │   ├── src/
+│   │   │   ├── mode_controller.py                  # ??? mode operation
+│   │   │   ├── mode_controller.py                  # ??? mode operation
+│   │   │   ├── InverseKinematics.py     # IK
+│   │   │   ├── state_command.py	 # Mode command
+│   │   │   └── controller_utils.py      # Utilities and common functions for controllers
+│   │   ├── config/
+│   │   │   └── control_params.yaml      # Configuration parameters for control modes
+│   │   ├── launch/
+│   │   │   └── robot_controller.launch.py        # Launch file for control modes
+│   │   └── package.xml
 │   │
-│   ├── wheelleg_UI
-│   │   └── Controller_UI
 │   │
-│   └── ...
+│   ├── robot_can_activation/
+│   │   ├── src/
+│   │   │   ├── bridge_can_node.py       # Node for bridge motor activation via CAN
+│   │   │   └── ascender_can_node.py     # Node for ascender motor activation via CAN
+│   │   ├── launch/
+│   │   │   └── can_activation.launch.py # Launch file to activate motors
+│   │   └── CMakeLists.txt
+│   │   └── package.xml
+│   │
+│   └── bridge_ui/
+│       └── src/
+│           └── ui_controller.py         # PyQt UI for controlling the robot
+│       └── CMakeLists.txt
+│       └── package.xml
 ```
 
 Note that this repo utilizes two git submodules, which require additional steps to check out. After checking out the main repo, checkout the submodules via:
