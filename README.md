@@ -68,20 +68,23 @@ bridge_core/
 │   │
 │   ├── robot_control/
 │   │   ├── src/
-│   │   │   ├── mode_controller.py                  # ??? mode operation
-│   │   │   ├── mode_controller.py                  # ??? mode operation
-│   │   │   ├── InverseKinematics.py     # IK
-│   │   │   ├── state_command.py	 # Mode command
-│   │   │   └── controller_utils.py      # Utilities and common functions for controllers
+│   │   │   ├── poses.yaml                 
+│   │   │   ├── ascender_command.py                
+│   │   │   ├── ascender_comtroller.py     
+│   │   │   ├── Transformations.py                
+│   │   │   ├── InverseKinematics.py
+│   │   │   ├── stand_command.py	 # Mode command
+│   │   │   └── standmode_controller.py      # Utilities and common functions for controllers
 │   │   ├── config/
 │   │   │   └── control_params.yaml      # Configuration parameters for control modes
 │   │   ├── launch/
-│   │   │   └── robot_controller.launch.py        # Launch file for control modes
+│   │   │   └── wheelleg_controller.launch.py        # Launch file for control modes
+│   │   │   └── ascender_controller.launch.py        # Launch file for control modes
 │   │   └── package.xml
 │   │
 │   ├── robot_can_activation/
 │   │   ├── src/
-│   │   │   ├── bridge_can_node.py       # Node for bridge motor activation via CAN
+│   │   │   ├── wheelleg_can_node.py       # Node for bridge motor activation via CAN
 │   │   │   └── ascender_can_node.py     # Node for ascender motor activation via CAN
 │   │   ├── launch/
 │   │   │   └── can_activation.launch.py # Launch file to activate motors
