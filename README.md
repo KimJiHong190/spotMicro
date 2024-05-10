@@ -98,10 +98,11 @@ bridge_core/
 │   │
 │   ├── robot_interfaces/
 │   │   ├── msg/
-│   │   │   ├── bridge_setup.py
-│   │   │   ├── CAN_module.py
-│   │   │   ├── shotleg_setup.py
-│   │   │   └── UI_setup_robo.py
+│   │   │   ├── BridgeBoolMultiArray.msg
+│   │   │   ├── BridgeCurrent.msg
+│   │   │   ├── BridgeFloat32MultiArray.msg
+│   │   │   ├── BridgeError.msg
+│   │   │   └── BridgeStringMultiArray.msg
 │   │   │
 │   │   └── package.xml
 │   │   
