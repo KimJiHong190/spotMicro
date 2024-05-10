@@ -54,54 +54,63 @@ bridge_core/
 ├── src/
 │   ├── robots_description/
 │   │   ├── urdf/
-│   │   │   └── wheelleg.urdf  # Robot description files
+│   │   │   └── wheelleg.urdf  
 │   │   ├── launch/
-│   │   │   ├── wheelleg_visualize.launch.py        # Launch file to visualize robot in RViz2
+│   │   │   └── wheelleg_visualize.launch.py        
 │   │   ├── meshes/
 │   │   │   └── *STL
 │   │   ├── robot_description/
-│   │   │   └── wheelleg_monitoring.py              # Monitoring Node
+│   │   │   └── wheelleg_monitoring.py              
 │   │   ├── rviz/
 │   │   │   └── monitoring.rviz
 │   │   │
 │   │   └── package.xml
 │   │
 │   ├── robot_control/
-│   │   ├── src/
-│   │   │   ├── poses.yaml                 
-│   │   │   ├── ascender_command.py                
-│   │   │   ├── ascender_comtroller.py     
-│   │   │   ├── Transformations.py                
-│   │   │   ├── InverseKinematics.py
-│   │   │   ├── stand_command.py	 # Mode command
-│   │   │   └── standmode_controller.py      # Utilities and common functions for controllers
-│   │   ├── config/
-│   │   │   └── control_params.yaml      # Configuration parameters for control modes
-│   │   ├── launch/
-│   │   │   └── wheelleg_controller.launch.py        # Launch file for control modes
-│   │   │   └── ascender_controller.launch.py        # Launch file for control modes
+│   │   ├── InverseKinematics/
+│   │   │   ├── robot_IK.py
+│   │   │   └── Transformations.py 
+│   │   │
+│   │   ├── WheellegController/
+│   │   │   ├── poses.yaml 
+│   │   │   ├── remote_controller.py                  
+│   │   │   ├── stand_command.py                  
+│   │   │   └── standmode_controller.py
+│   │   │
+│   │   ├── run_ascender_controller.py
+│   │   ├── run_wheelleg_controller.py
+│   │   │
 │   │   └── package.xml
 │   │
 │   ├── robot_can_activation/
-│   │   ├── src/
-│   │   │   ├── wheelleg_can_node.py       # Node for bridge motor activation via CAN
-│   │   │   └── ascender_can_node.py     # Node for ascender motor activation via CAN
-│   │   ├── launch/
-│   │   │   └── can_activation.launch.py # Launch file to activate motors
-│   │   └── CMakeLists.txt
+│   │   ├── submodule/
+│   │   │   ├── bridge_setup.py
+│   │   │   ├── CAN_module.py
+│   │   │   ├── shotleg_setup.py
+│   │   │   └── UI_setup_robo.py
+│   │   │
+│   │   ├── can_ascender_node_v2.py
+│   │   ├── can_wheelleg_ascender_node_v2.py
+│   │   ├── can_wheelleg_node_v2.py
+│   │   ├── shortleg_can_node.py
+│   │   │
 │   │   └── package.xml
 │   │
-│   └── robot_interfaces/
-│   │   └── msg/
-│   │   │    └── Bridgemsg * 8         # Bridge custom msg
-│   │   └── CMakeLists.txt
+│   ├── robot_interfaces/
+│   │   ├── msg/
+│   │   │   ├── bridge_setup.py
+│   │   │   ├── CAN_module.py
+│   │   │   ├── shotleg_setup.py
+│   │   │   └── UI_setup_robo.py
+│   │   │
 │   │   └── package.xml
-│   │
+│   │   
 │   └── bridge_ui/
-│   │   └── src/
-│   │   │    └── ui_controller.py         # PyQt UI for controlling the robot
-│   │   └── CMakeLists.txt
-│   │   └── package.xml
+│       ├── submodule/
+│       │   └── UI_window.py         
+│       ├── UI_controller.py
+│       │
+│       └── package.xml
 ```
 
 Note that this repo utilizes two git submodules, which require additional steps to check out. After checking out the main repo, checkout the submodules via:
