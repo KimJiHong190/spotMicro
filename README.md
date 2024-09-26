@@ -49,70 +49,7 @@ The provided ROS Catkin make build system can be utilized, but I used `catkin to
 
 This repo should be checked out to a catkin workspace on the raspberry pi so the directory structure appears as below. If not already available, a catkin workspace can be created or transitioned from a catkin make workspace using catkin tools ([or if using stock ROS tools, see tutorial pages for creating a catkin workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)). If you don't have the pi connected to the internet you could use the catkin commands to create the workspace on another conputer, then copy the files to a RPi over wifi via scp. For example: `scp spotMicro/* ubuntu@10.42.0.1:~/catkin_ws/src/`.
 
-```
-bridge_core/
-├── src/
-│   ├── robots_description/
-│   │   ├── urdf/
-│   │   │   └── wheelleg.urdf  
-│   │   ├── launch/
-│   │   │   └── wheelleg_visualize.launch.py        
-│   │   ├── meshes/
-│   │   │   └── *STL
-│   │   ├── robot_description/
-│   │   │   └── wheelleg_monitoring.py              
-│   │   ├── rviz/
-│   │   │   └── monitoring.rviz
-│   │   │
-│   │   └── package.xml
-│   │
-│   ├── robot_control/
-│   │   ├── InverseKinematics/
-│   │   │   ├── robot_IK.py
-│   │   │   └── Transformations.py 
-│   │   │
-│   │   ├── WheellegController/
-│   │   │   ├── poses.yaml 
-│   │   │   ├── remote_controller.py                  
-│   │   │   ├── stand_command.py                  
-│   │   │   └── standmode_controller.py
-│   │   │
-│   │   ├── run_ascender_controller.py
-│   │   ├── run_wheelleg_controller.py
-│   │   │
-│   │   └── package.xml
-│   │
-│   ├── robot_can_activation/
-│   │   ├── submodule/
-│   │   │   ├── bridge_setup.py
-│   │   │   ├── CAN_module.py
-│   │   │   ├── shotleg_setup.py
-│   │   │   └── UI_setup_robo.py
-│   │   │
-│   │   ├── can_ascender_node_v2.py
-│   │   ├── can_wheelleg_ascender_node_v2.py
-│   │   ├── can_wheelleg_node_v2.py
-│   │   ├── shortleg_can_node.py
-│   │   │
-│   │   └── package.xml
-│   │
-│   ├── robot_interfaces/
-│   │   ├── msg/
-│   │   │   ├── BridgeBoolMultiArray.msg
-│   │   │   ├── BridgeCurrent.msg
-│   │   │   ├── BridgeFloat32MultiArray.msg
-│   │   │   ├── BridgeError.msg
-│   │   │   └── BridgeStringMultiArray.msg
-│   │   │
-│   │   └── package.xml
-│   │   
-│   └── bridge_ui/
-│       ├── submodule/
-│       │   └── UI_window.py         
-│       ├── UI_controller.py
-│       │
-│       └── package.xml
-```
+
 
 Note that this repo utilizes two git submodules, which require additional steps to check out. After checking out the main repo, checkout the submodules via:
 
